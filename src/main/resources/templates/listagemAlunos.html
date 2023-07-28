@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alunos Cadastrados</title>
+</head>
+<body>
+    <h1>Alunos Cadastrados</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>NOME COMPLETO</th>
+                <th>CELULAR</th>
+                <th>CURSO</th>
+                <th>FASE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="aluno : ${alunos}">
+                <td th:text="${aluno.nomeCompleto}"></td>
+                <td th:text="${aluno.celular}"></td>
+                <td th:text="${aluno.curso}"></td>
+                <td th:text="${aluno.fase}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

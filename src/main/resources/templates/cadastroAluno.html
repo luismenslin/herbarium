@@ -1,26 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Cadastro de Alunos</title>
-    </head>
-    <body>
-        <h1>Cadastro de Aluno</h1>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Aluno</title>
+</head>
+<body>
+    <h1>Cadastro de Aluno</h1>
 
-        <form method="post" action="/cadastroAluno">
-            <label for="nome">Nome Completo:</label>
-            <input id="nome" name="nomeAluno">
-<br>
-            <label for="celular">Celular:</label>
-            <input id="celular" name="celular">
-<br>
-            <label for="curso">Curso:</label>
-            <input id="curso" name="curso">
-<br>
-            <label for="fase">Fase:</label>
-            <input id="fase" name="fase">
-<br>
-            <input type="submit" value="Cadastrar">
-        </form>
-    </body>
+    <form method="post" action="/alunos">
+        <label for="nome">Nome Completo:</label>
+        <input id="nome" name="nomeCompleto">
+
+        <br>
+
+        <label for="celular">Celular:</label>
+        <input id="celular" name="celular">
+
+        <br>
+
+        <label for="curso">Curso:</label>
+        <input id="curso" name="curso">
+
+        <br>
+        <label for="fase">Fase:</label>
+        <input id="fase" name="fase">
+
+        <br>
+
+        <input type="submit">
+    </form>
+</body>
 </html>

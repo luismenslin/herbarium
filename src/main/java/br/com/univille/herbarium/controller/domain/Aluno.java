@@ -1,24 +1,33 @@
 package br.com.univille.herbarium.controller.domain;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "ALUNOS")
 public class Aluno {
-    private String nome;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nomeCompleto;
     private String celular;
     private String curso;
     private Integer fase;
 
-    public Aluno(DadosCadastroAluno dados) {
-        this.nome = dados.nomeAluno();
+    public Aluno (DadosCadastroAluno dados) {
+        this.nomeCompleto = dados.nomeCompleto();
         this.celular = dados.celular();
         this.curso = dados.curso();
         this.fase = dados.fase();
     }
 
-    public String getNome() {
-        return nome;
+    public Aluno() {}
+    public String getNomeCompleto() {
+        return nomeCompleto;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
     }
 
     public String getCelular() {
@@ -45,10 +54,18 @@ public class Aluno {
         this.fase = fase;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Aluno{" +
-                "nome='" + nome + '\'' +
+                "nomeCompleto='" + nomeCompleto + '\'' +
                 ", celular='" + celular + '\'' +
                 ", curso='" + curso + '\'' +
                 ", fase=" + fase +
