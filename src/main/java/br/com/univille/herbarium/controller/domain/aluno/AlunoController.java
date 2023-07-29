@@ -1,8 +1,5 @@
-package br.com.univille.herbarium.controller;
+package br.com.univille.herbarium.controller.domain.aluno;
 
-import br.com.univille.herbarium.controller.domain.Aluno;
-import br.com.univille.herbarium.controller.domain.AlunoRepository;
-import br.com.univille.herbarium.controller.domain.DadosCadastroAluno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +17,7 @@ public class AlunoController {
     @GetMapping
     public String showListagemAlunos(Model model) {
         model.addAttribute("alunos", repository.findAll());
-        return "listagemAlunos";
+        return "/alunos/listagemAlunos";
     }
 
     @PostMapping
@@ -32,6 +29,6 @@ public class AlunoController {
     }
     @GetMapping("/cadastroAluno")
     public String showCadastroAluno() {
-        return "cadastroAluno";
+        return "/alunos/cadastroAluno";
     }
 }
