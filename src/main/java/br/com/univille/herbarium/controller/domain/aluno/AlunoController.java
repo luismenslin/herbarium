@@ -3,6 +3,7 @@ package br.com.univille.herbarium.controller.domain.aluno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,5 +31,11 @@ public class AlunoController {
     @GetMapping("/cadastroAluno")
     public String showCadastroAluno() {
         return "/alunos/cadastroAluno";
+    }
+
+    @DeleteMapping
+    public String deletaAluno(Long id) {
+        repository.deleteById(id);
+        return "redirect:alunos";
     }
 }

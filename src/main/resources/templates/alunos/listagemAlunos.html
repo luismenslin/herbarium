@@ -13,6 +13,7 @@
                 <th>CELULAR</th>
                 <th>CURSO</th>
                 <th>FASE</th>
+                <td>AÇÕES</td>
             </tr>
         </thead>
         <tbody>
@@ -21,6 +22,14 @@
                 <td th:text="${aluno.celular}"></td>
                 <td th:text="${aluno.curso}"></td>
                 <td th:text="${aluno.fase}"></td>
+
+                <td>
+                    <form action="/alunos" method="POST">
+                        <input type="hidden" name="_method" value="delete">
+                        <input type="hidden" name="id" th:value="${aluno.id}">
+                        <input type="submit" value="Excluir">
+                    </form>
+                </td>
             </tr>
         </tbody>
     </table>
