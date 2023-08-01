@@ -71,4 +71,11 @@ public class Aluno {
                 ", fase=" + fase +
                 '}';
     }
+
+    public void atualizaAluno(DadosAlteradosAluno dados) {
+        this.nome = dados.nome();
+        this.celular = dados.celular();
+        this.curso = dados.curso();
+        this.fase = dados.fase();
+    }
 }

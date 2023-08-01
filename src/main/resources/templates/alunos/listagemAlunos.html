@@ -13,7 +13,7 @@
                 <th>CELULAR</th>
                 <th>CURSO</th>
                 <th>FASE</th>
-                <td>AÇÕES</td>
+                <th>AÇÕES</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +24,9 @@
                 <td th:text="${aluno.fase}"></td>
 
                 <td>
+
+                    <a th:href="@{/alunos/cadastroAluno?id={id}(id=${aluno.id})}">Editar</a>
+
                     <form action="/alunos" method="POST">
                         <input type="hidden" name="_method" value="delete">
                         <input type="hidden" name="id" th:value="${aluno.id}">
