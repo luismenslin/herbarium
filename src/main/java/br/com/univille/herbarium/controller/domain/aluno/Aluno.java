@@ -62,15 +62,6 @@ public class Aluno {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "Aluno{" +
-                "nomeCompleto='" + nome + '\'' +
-                ", celular='" + celular + '\'' +
-                ", curso='" + curso + '\'' +
-                ", fase=" + fase +
-                '}';
-    }
 
     public void atualizaAluno(DadosAlteradosAluno dados) {
         this.nome = dados.nome();

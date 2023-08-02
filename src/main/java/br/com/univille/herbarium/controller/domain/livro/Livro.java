@@ -61,4 +61,11 @@ public class Livro {
     public void setPublicacao(Integer publicacao) {
         this.publicacao = publicacao;
     }
+
+    public void atualizaLivro(DadosAlteradosLivro dados) {
+        this.nome = dados.nome();
+        this.autor = dados.autor();
+        this.edicao = dados.edicao();
+        this.publicacao = dados.publicacao();
+    }
 }
