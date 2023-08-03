@@ -52,4 +52,5 @@ public class AlunoController {
         repository.deleteById(id);
         return "redirect:alunos";
     }
+
 }

@@ -1,5 +1,6 @@
 package br.com.univille.herbarium.controller.domain.livro;
 
+import br.com.univille.herbarium.controller.domain.aluno.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +13,7 @@ public class LivroController {
 
     @Autowired
     private LivroRepository repository;
+
     @GetMapping
     public String showListagemLivros(Model model) {
         model.addAttribute("livros", repository.findAll());
@@ -28,11 +30,6 @@ public class LivroController {
         return "livros/cadastroLivro";
     }
 
-    @GetMapping("/locarLivro")
-    public String showLocarLivro() {
-        return "/livros/locarLivro";
-    }
-
     @PostMapping
     @Transactional
     public String cadastraLivroNovo(DadosCadastroLivro dados) {
@@ -41,6 +38,7 @@ public class LivroController {
 
         return "redirect:livros";
     }
+
 
     @PutMapping
     @Transactional
