@@ -30,6 +30,8 @@ public class LivroController {
         return "livros/cadastroLivro";
     }
 
+
+
     @PostMapping
     @Transactional
     public String cadastraLivroNovo(DadosCadastroLivro dados) {
@@ -55,5 +57,4 @@ public class LivroController {
         repository.deleteById(id);
         return "redirect:livros";
     }
-
 }

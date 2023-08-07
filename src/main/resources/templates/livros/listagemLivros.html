@@ -25,6 +25,8 @@
 
                 <td>
 
+                    <a th:href="@{/locarLivro?idLivro={idLivro}(idLivro=${livro.id})}">Locar Livro</a>
+
                     <a th:href="@{/livros/cadastroLivro?id={id}(id=${livro.id})}">Editar</a>
 
                     <form action="/livros" method="POST">

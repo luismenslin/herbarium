@@ -1,35 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Locar livro</title>
+    <title>LocarLivro</title>
 </head>
 <body>
     <h1>Locar Livro</h1>
 
-    <form method="post" action="/livros">
+    <form method="post" action="/locarLivro">
 
-        <label for="livro">Selecione o livro:</label>
-        <select>
-            <span th:each="livro : ${livros}">
-                <option id="livro" name="livro" th:text="${livro.nome}" th:value="${livro.id}"></option>
-            </span>
-        </select>
+        <label for="idLivro">Codigo Livro:</label>
+        <input id="idLivro" name="idLivro">
 
         <br>
 
-        <label for="aluno">Selecione o aluno:</label>
-        <select>
-            <span th:each="aluno : ${alunos}">
-                <option id="aluno" name="aluno" th:text="${aluno.nome}" th:value="${aluno.id}"></option>
-            </span>
-        </select>
+        <label for="idAluno">Codigo do aluno:</label>
+        <input id="idAluno" name="idAluno">
 
         <br>
 
-        <input type="submit" value="Locar livro">
-
+        <input type="submit" value="Locar Livro">
     </form>
-
 </body>
 </html>
