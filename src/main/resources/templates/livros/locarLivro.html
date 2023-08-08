@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>LocarLivro</title>
@@ -10,12 +10,16 @@
     <form method="post" action="/locarLivro">
 
         <label for="idLivro">Codigo Livro:</label>
-        <input id="idLivro" name="idLivro">
+        <select id="idLivro" name="idLivro">
+            <option th:each="livro : ${livros}" th:text="${livro.nome}" th:value="${livro.id}"></option>
+        </select>
 
         <br>
 
         <label for="idAluno">Codigo do aluno:</label>
-        <input id="idAluno" name="idAluno">
+        <select id="idAluno" name="idAluno">
+            <option th:each="aluno : ${alunos}" th:text="${aluno.nome}" th:value="${aluno.id}"></option>
+        </select>
 
         <br>
 

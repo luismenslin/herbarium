@@ -13,12 +13,14 @@ public class Livro {
     private String autor;
     private String edicao;
     private Integer publicacao;
+    private String status;
 
     public Livro(DadosCadastroLivro dados) {
         this.nome = dados.nome();
         this.autor = dados.autor();
         this.edicao = dados.edicao();
         this.publicacao = dados.publicacao();
+        this.status = "DISPONIVEL";
     }
     public Livro() {}
 
@@ -60,6 +62,14 @@ public class Livro {
 
     public void setPublicacao(Integer publicacao) {
         this.publicacao = publicacao;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public void atualizaLivro(DadosAlteradosLivro dados) {

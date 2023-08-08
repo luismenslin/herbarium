@@ -14,6 +14,7 @@
                 <th>EDIÇÃO</th>
                 <th>DATA PUBLICAÇÃO</th>
                 <th>STATUS</th>
+                <th>AÇÕES</th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +23,7 @@
                 <td th:text="${livro.autor}"></td>
                 <td th:text="${livro.edicao}"></td>
                 <td th:text="${livro.publicacao}"></td>
-
+                <td th:text="${livro.status}"></td>
                 <td>
 
                     <a th:href="@{/locarLivro?idLivro={idLivro}(idLivro=${livro.id})}">Locar Livro</a>
