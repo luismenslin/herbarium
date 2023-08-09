@@ -78,4 +78,9 @@ public class Livro {
         this.edicao = dados.edicao();
         this.publicacao = dados.publicacao();
     }
+
+
+    public void atualizaStatus(String status) {
+        this.status = status;
+    }
 }

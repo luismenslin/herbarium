@@ -11,8 +11,8 @@ public class Locacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer livro;
-    private Integer aluno;
+    private Long livro;
+    private Long aluno;
     private LocalDate locacao;
     private LocalDate devolucao;
 
@@ -23,19 +23,19 @@ public class Locacao {
     }
 
     public Locacao() {}
-    public Integer getLivro() {
+    public Long getLivro() {
         return livro;
     }
 
-    public void setLivro(Integer livro) {
+    public void setLivro(Long livro) {
         this.livro = livro;
     }
 
-    public Integer getAluno() {
+    public Long getAluno() {
         return aluno;
     }
 
-    public void setAluno(Integer aluno) {
+    public void setAluno(Long aluno) {
         this.aluno = aluno;
     }
 

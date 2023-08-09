@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Devolução de livro</title>
+</head>
+<body>
+    <h1>Devolução</h1>
+    <form method="post" action="devolveLivro.html">
+        <label for="idLivro"></label>
+        <input type="hidden" id="idLivro" name="idLivro">
+        <label for="idAluno"></label>
+        <input type="hidden" id="idAluno" name="idAluno">
+
+        <label for="devolucao">Data da devolução:</label>
+        <input type="date" id="devolucao" name="devolucao">
+
+        <div></div>
+
+        <input type="submit" value="Devolver Livro">
+    </form>
+</body>
+</html>
