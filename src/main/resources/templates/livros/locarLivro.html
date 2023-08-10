@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Locar Livro</title>
+</head>
+    <body>
+        <a href="/livros">Livros</a>
+        <a href="/livros/cadastroLivro">Cadastro Livro</a>
+        <a href="/locacao">Locar Livro</a>
+        <a href="/alunos">Alunos</a>
+        <a href="/alunos/cadastroAluno">CadastroAluno</a>
+
+        <h1>Locar Livro</h1>
+
+        <form method="post" action="/locacao">
+
+            <label for="idAluno">Nome do aluno:</label>
+            <input id="idAluno" name="idAluno">
+
+            <br>
+
+            <label for="idLivro">Nome do livro:</label>
+            <input id="idLivro" name="idLivro">
+
+            <br>
+
+            <label for="locacao"></label>
+            <input type="date" id="locacao" name="locacao">
+
+            <br>
+
+            <input type="submit" value="Locar Livro">
+
+        </form>
+    </body>
+</html>
