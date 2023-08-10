@@ -5,7 +5,14 @@
     <title>Acervo</title>
 </head>
 <body>
+
+<a href="/livros">Livros</a>
+<a href="/livros/cadastroLivro">Cadastro Livro</a>
+<a href="/alunos">Alunos</a>
+<a href="/alunos/cadastroAluno">CadastroAluno</a>
+
     <h1>Acervo de livros</h1>
+
     <table>
         <thead>
             <tr>
@@ -26,7 +33,9 @@
                 <td th:text="${livro.status}"></td>
                 <td>
 
-                    <a th:href="@{/locarLivro?idLivro={idLivro}(idLivro=${livro.id})}">Locar Livro</a>
+                    <a th:if="${livro.status} == LOCADO" th:href="@{/locarLivro/devolucao?idLivro={idLivro}(idLivro=${livro.id})}">Devolver Livro</a>
+
+                    <a th:if="${livro.status} == DISPONIVEL" th:href="@{/locarLivro?idLivro={idLivro}(idLivro=${livro.id})}">Locar Livro</a>
 
                     <a th:href="@{/livros/cadastroLivro?id={id}(id=${livro.id})}">Editar</a>
 
