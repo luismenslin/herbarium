@@ -1,50 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nx/thymeleaf/layout"
+      layout:decorate="~{template.html}">
 <head>
     <meta charset="UTF-8">
     <title>Alunos Cadastrados</title>
 </head>
 <body>
+    <div layout:fragment="conteudo">
+        <h1>Alunos Cadastrados</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>NOME COMPLETO</th>
+                    <th>CELULAR</th>
+                    <th>CURSO</th>
+                    <th>FASE</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="aluno : ${alunos}">
+                    <td th:text="${aluno.nome}"></td>
+                    <td th:text="${aluno.celular}"></td>
+                    <td th:text="${aluno.curso}"></td>
+                    <td th:text="${aluno.fase}"></td>
 
-<a href="/livros">Livros</a>
-<a href="/livros/cadastroLivro">Cadastro Livro</a>
-<a href="/locacao">Locar Livro</a>
-<a href="/alunos">Alunos</a>
-<a href="/alunos/cadastroAluno">CadastroAluno</a>
+                    <td>
 
+                        <a th:href="@{/locarLivro?idAluno={idAluno}(idAluno=${aluno.id})}">Locar Livro</a>
 
-    <h1>Alunos Cadastrados</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>NOME COMPLETO</th>
-                <th>CELULAR</th>
-                <th>CURSO</th>
-                <th>FASE</th>
-                <th>AÇÕES</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="aluno : ${alunos}">
-                <td th:text="${aluno.nome}"></td>
-                <td th:text="${aluno.celular}"></td>
-                <td th:text="${aluno.curso}"></td>
-                <td th:text="${aluno.fase}"></td>
+                        <a th:href="@{/alunos/cadastroAluno?id={id}(id=${aluno.id})}">Editar</a>
 
-                <td>
-
-                    <a th:href="@{/locarLivro?idAluno={idAluno}(idAluno=${aluno.id})}">Locar Livro</a>
-
-                    <a th:href="@{/alunos/cadastroAluno?id={id}(id=${aluno.id})}">Editar</a>
-
-                    <form action="/alunos" method="POST">
-                        <input type="hidden" name="_method" value="delete">
-                        <input type="hidden" name="id" th:value="${aluno.id}">
-                        <input type="submit" value="Excluir">
-                    </form>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                        <form action="/alunos" method="POST">
+                            <input type="hidden" name="_method" value="delete">
+                            <input type="hidden" name="id" th:value="${aluno.id}">
+                            <input type="submit" value="Excluir">
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

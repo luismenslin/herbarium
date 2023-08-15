@@ -1,46 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nx/thymeleaf/layout"
+      layout:decorate="~{template.html}">
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Livro</title>
 </head>
 <body>
+    <div layout:fragment="conteudo">
+        <h1>Cadastro de livro</h1>
 
-<a href="/livros">Livros</a>
-<a href="/livros/cadastroLivro">Cadastro Livro</a>
-<a href="/locacao">Locar Livro</a>
-<a href="/alunos">Alunos</a>
-<a href="/alunos/cadastroAluno">CadastroAluno</a>
+        <form method="post" action="/livros">
 
+            <input type="hidden" name="_method" value="put" th:if="${livro != null}">
+            <input type="hidden" name="id" th:value="${livro?.id}">
 
-    <h1>Cadastro de livro</h1>
+            <label for="nome">Nome do Livro:</label>
+            <input id="nome" name="nome" th:value="${livro?.nome}">
 
-    <form method="post" action="/livros">
+            <br>
 
-        <input type="hidden" name="_method" value="put" th:if="${livro != null}">
-        <input type="hidden" name="id" th:value="${livro?.id}">
+            <label for="autor">Nome do Autor:</label>
+            <input id="autor" name="autor" th:value="${livro?.autor}">
 
-        <label for="nome">Nome do Livro:</label>
-        <input id="nome" name="nome" th:value="${livro?.nome}">
+            <br>
 
-        <br>
+            <label for="edicao">Edição:</label>
+            <input id="edicao" name="edicao" th:value="${livro?.edicao}">
 
-        <label for="autor">Nome do Autor:</label>
-        <input id="autor" name="autor" th:value="${livro?.autor}">
+            <br>
 
-        <br>
+            <label for="publicacao">Ano Publicação:</label>
+            <input id="publicacao" name="publicacao" th:value="${livro?.publicacao}">
 
-        <label for="edicao">Edição:</label>
-        <input id="edicao" name="edicao" th:value="${livro?.edicao}">
+            <br>
 
-        <br>
-
-        <label for="publicacao">Ano Publicação:</label>
-        <input id="publicacao" name="publicacao" th:value="${livro?.publicacao}">
-
-        <br>
-
-        <input type="submit">
-    </form>
+            <input type="submit">
+        </form>
+    </div>
 </body>
 </html>

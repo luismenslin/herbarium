@@ -1,54 +1,50 @@
 <!DOCTYPE html >
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nx/thymeleaf/layout"
+      layout:decorate="~{template.html}">
 <head>
     <meta charset="UTF-8">
     <title>Acervo</title>
 </head>
 <body>
+    <div layout:fragment="conteudo">
+        <h1>Acervo de livros</h1>
 
-<a href="/livros">Livros</a>
-<a href="/livros/cadastroLivro">Cadastro Livro</a>
-<a href="/locacao">Locar Livro</a>
-<a href="/alunos">Alunos</a>
-<a href="/alunos/cadastroAluno">CadastroAluno</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>NOME DO LIVRO</th>
+                    <th>AUTOR</th>
+                    <th>EDIÇÃO</th>
+                    <th>DATA PUBLICAÇÃO</th>
+                    <th>STATUS</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="livro : ${livros}">
+                    <td th:text="${livro.nome}"></td>
+                    <td th:text="${livro.autor}"></td>
+                    <td th:text="${livro.edicao}"></td>
+                    <td th:text="${livro.publicacao}"></td>
+                    <td th:text="${livro.status}"></td>
+                    <td>
+    <!--
+                        <a th:if="${livro.status} == LOCADO" th:href="@{/locarLivro/devolucao?idLivro={idLivro}(idLivro=${livro.id})}">Devolver Livro</a>
 
+                        <a th:if="${livro.status} == DISPONIVEL" th:href="@{/locarLivro?idLivro={idLivro}(idLivro=${livro.id})}">Locar Livro</a>
+    -->
+                        <a th:href="@{/livros/cadastroLivro?id={id}(id=${livro.id})}">Editar</a>
 
-    <h1>Acervo de livros</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>NOME DO LIVRO</th>
-                <th>AUTOR</th>
-                <th>EDIÇÃO</th>
-                <th>DATA PUBLICAÇÃO</th>
-                <th>STATUS</th>
-                <th>AÇÕES</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="livro : ${livros}">
-                <td th:text="${livro.nome}"></td>
-                <td th:text="${livro.autor}"></td>
-                <td th:text="${livro.edicao}"></td>
-                <td th:text="${livro.publicacao}"></td>
-                <td th:text="${livro.status}"></td>
-                <td>
-<!--
-                    <a th:if="${livro.status} == LOCADO" th:href="@{/locarLivro/devolucao?idLivro={idLivro}(idLivro=${livro.id})}">Devolver Livro</a>
-
-                    <a th:if="${livro.status} == DISPONIVEL" th:href="@{/locarLivro?idLivro={idLivro}(idLivro=${livro.id})}">Locar Livro</a>
--->
-                    <a th:href="@{/livros/cadastroLivro?id={id}(id=${livro.id})}">Editar</a>
-
-                    <form action="/livros" method="POST">
-                        <input type="hidden" name="_method" value="delete">
-                        <input type="hidden" name="id" th:value="${livro.id}">
-                        <input type="submit" value="Excluir">
-                    </form>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                        <form action="/livros" method="POST">
+                            <input type="hidden" name="_method" value="delete">
+                            <input type="hidden" name="id" th:value="${livro.id}">
+                            <input type="submit" value="Excluir">
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

@@ -1,44 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nx/thymeleaf/layout"
+      layout:decorate="~{template.html}">
 <head>
     <meta charset="UTF-8">
     <title>Novo Aluno</title>
 </head>
 <body>
+    <div layout:fragment="conteudo">
+        <h1>Cadastro de Aluno</h1>
 
-<a href="/livros">Livros</a>
-<a href="/livros/cadastroLivro">Cadastro Livro</a>
-<a href="/locacao">Locar Livro</a>
-<a href="/alunos">Alunos</a>
-<a href="/alunos/cadastroAluno">CadastroAluno</a>
+        <form method="post" action="/alunos">
 
-    <h1>Cadastro de Aluno</h1>
+            <input type="hidden" name="_method" value="put" th:if="${aluno != null}">
+            <input type="hidden" name="id" th:value="${aluno?.id}">
 
-    <form method="post" action="/alunos">
+            <label for="nome">Nome Completo:</label>
+            <input id="nome" name="nome" th:value="${aluno?.nome}">
 
-        <input type="hidden" name="_method" value="put" th:if="${aluno != null}">
-        <input type="hidden" name="id" th:value="${aluno?.id}">
+            <br>
 
-        <label for="nome">Nome Completo:</label>
-        <input id="nome" name="nome" th:value="${aluno?.nome}">
+            <label for="celular">Celular:</label>
+            <input id="celular" name="celular" th:value="${aluno?.celular}">
 
-        <br>
+            <br>
 
-        <label for="celular">Celular:</label>
-        <input id="celular" name="celular" th:value="${aluno?.celular}">
+            <label for="curso">Curso:</label>
+            <input id="curso" name="curso" th:value="${aluno?.curso}">
 
-        <br>
+            <br>
+            <label for="fase">Fase:</label>
+            <input id="fase" name="fase" th:value="${aluno?.fase}">
 
-        <label for="curso">Curso:</label>
-        <input id="curso" name="curso" th:value="${aluno?.curso}">
+            <br>
 
-        <br>
-        <label for="fase">Fase:</label>
-        <input id="fase" name="fase" th:value="${aluno?.fase}">
-
-        <br>
-
-        <input type="submit">
-    </form>
+            <input type="submit">
+        </form>
+    </div>
 </body>
 </html>
