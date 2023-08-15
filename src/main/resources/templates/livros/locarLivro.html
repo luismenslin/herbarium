@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nx/thymeleaf/layout"
+      layout:decorate="~{template.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Locar Livro</title>
+</head>
+<body>
+    <div layout:fragment="conteudo">
+        <h1>Locar Livro</h1>
+
+        <form method="post" action="/locacoes/locarLivro">
+            <label for="idAluno">Aluno:</label>
+            <select id="idAluno" name="idAluno">
+                <option th:each="aluno : ${alunos}" th:text="${aluno.nome} + ' | ' + ${aluno.curso}" th:value="${aluno.id}"></option>
+            </select>
+
+            <br>
+
+            <label for="idLivro">Livro:</label>
+            <select id="idLivro" name="idLivro">
+                <option th:each="livro : ${livros}" th:text="${livro.nome} + ' | ' + ${livro.edicao}" th:value="${livro.id}"></option>
+            </select>
+
+            <br>
+
+            <input type="Submit" value="Locar Livro">
+        </form>
+    </div>
+</body>
+</html>
