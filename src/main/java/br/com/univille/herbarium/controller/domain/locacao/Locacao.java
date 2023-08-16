@@ -69,4 +69,8 @@ public class Locacao {
     public void setDevolucao(LocalDate devolucao) {
         this.devolucao = devolucao;
     }
+
+    public void devolveLivro(DadosDevolucaoLivro dados) {
+        this.devolucao = dados.devolucao();
+    }
 }

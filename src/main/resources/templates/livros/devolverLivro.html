@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml"
+<html lang="en" xmlns:th="http://thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nx/thymeleaf/layout"
       layout:decorate="~{template.html}">
 <head>
@@ -12,23 +12,25 @@
 
         <div>
             <span>Livro Locado</span>
-            <input disabled>
+            <input th:value="${locacao.getLivro().getNome()}" disabled>
 
             <br>
 
             <span>Aluno Locador</span>
-            <input disabled>
+            <input th:value="${locacao.getAluno().getNome()}" disabled>
 
         </div>
 
-        <from>
+        <form method="post" action="/locacoes/devolverLivro">
 
-            <label></label>
-            <input type="hidden">
+            <label for="locacao"></label>
+            <input th:value="${locacao.getId()}" id="locacao" name="locacao" type="hidden">
 
             <label for="devolucao">Data: </label>
             <input id="devolucao" name="devolucao" type="date">
-        </from>
+
+            <input type="Submit" value="Locar Livro">
+        </form>
     </div>
 </body>
 </html>

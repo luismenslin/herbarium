@@ -45,7 +45,7 @@ public class LocacaoController {
     }
 
     @GetMapping("/devolverLivro")
-    public String devolverLivro(Long idLivro, Model model) {
+    public String showDevolverLivro(Long idLivro, Model model) {
         var locacoes = repository.findAll();
         Locacao locacao = null;
         for (int i = 0; i < locacoes.size();i++) {
@@ -54,7 +54,16 @@ public class LocacaoController {
             }
         }
         model.addAttribute("locacao",locacao);
-        return "/livros/locarLivro";
+        return "/livros/devolverLivro";
+    }
+
+    @PostMapping("/devolverLivro")
+    public String devolverLivro(DadosDevolucaoLivro dados) {
+        var locacao = repository.getReferenceById(dados.locacao());
+        locacao.getLivro().atualizaStatus("DISPONIVEL");
+        locacao.devolveLivro(dados);
+
+        return "/livros";
     }
 
 }
