@@ -20,7 +20,7 @@
 
             <label for="idLivro">Livro:</label>
             <select id="idLivro" name="idLivro">
-                <option th:each="livro : ${livros}" th:text="${livro.nome} + ' | ' + ${livro.edicao}" th:value="${livro.id}"></option>
+                <option th:if="${livro.status == 'DISPONIVEL'}" th:each="livro : ${livros}" th:text="${livro.nome} + ' | ' + ${livro.edicao}" th:value="${livro.id}"></option>
             </select>
 
             <br>

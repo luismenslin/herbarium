@@ -79,8 +79,7 @@ public class Livro {
         this.publicacao = dados.publicacao();
     }
 
-
-    public void atualizaStatus(String status) {
+    public void atualizaStatus(String locado) {
         this.status = status;
     }
 }

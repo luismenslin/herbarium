@@ -39,8 +39,22 @@ public class LocacaoController {
         var aluno = alunoRepository.getReferenceById(dados.idAluno());
         var livro = livroRepository.getReferenceById(dados.idLivro());
         var locacao = new Locacao(aluno,livro);
+        livro.atualizaStatus("LOCADO");
         repository.save(locacao);
         return "/livros/listagemLocacoes";
+    }
+
+    @GetMapping("/devolverLivro")
+    public String devolverLivro(Long idLivro, Model model) {
+        var locacoes = repository.findAll();
+        Locacao locacao = null;
+        for (int i = 0; i < locacoes.size();i++) {
+            if (locacoes.get(i).getLivro().getId() == idLivro && locacoes.get(i).getDevolucao() == null) {
+                locacao = locacoes.get(i);
+            }
+        }
+        model.addAttribute("locacao",locacao);
+        return "/livros/locarLivro";
     }
 
 }
