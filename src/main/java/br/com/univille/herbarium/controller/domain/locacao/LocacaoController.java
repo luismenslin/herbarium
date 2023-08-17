@@ -1,6 +1,7 @@
 package br.com.univille.herbarium.controller.domain.locacao;
 
 import br.com.univille.herbarium.controller.domain.aluno.AlunoRepository;
+import br.com.univille.herbarium.controller.domain.livro.LivroController;
 import br.com.univille.herbarium.controller.domain.livro.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,7 +42,7 @@ public class LocacaoController {
         var locacao = new Locacao(aluno,livro);
         livro.atualizaStatus("LOCADO");
         repository.save(locacao);
-        return "/livros/listagemLocacoes";
+        return "redirect:/livros";
     }
 
     @GetMapping("/devolverLivro")
@@ -62,8 +63,9 @@ public class LocacaoController {
         var locacao = repository.getReferenceById(dados.locacao());
         locacao.getLivro().atualizaStatus("DISPONIVEL");
         locacao.devolveLivro(dados);
+        repository.save(locacao);
 
-        return "/livros";
+        return "redirect:/livros";
     }
 
 }
