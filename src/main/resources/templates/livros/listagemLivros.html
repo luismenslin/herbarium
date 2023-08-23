@@ -10,19 +10,19 @@
     <div layout:fragment="conteudo">
         <h1>Acervo de livros</h1>
 
-        <table>
+        <table class="table">
             <thead>
                 <tr>
-                    <th>NOME DO LIVRO</th>
-                    <th>AUTOR</th>
-                    <th>EDIÇÃO</th>
-                    <th>DATA PUBLICAÇÃO</th>
-                    <th>STATUS</th>
-                    <th>AÇÕES</th>
+                    <th scope="col">NOME DO LIVRO</th>
+                    <th scope="col">AUTOR</th>
+                    <th scope="col">EDIÇÃO</th>
+                    <th scope="col">DATA PUBLICAÇÃO</th>
+                    <th scope="col">STATUS</th>
+                    <th scope="col">AÇÕES</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="livro : ${livros}">
+                <tr scope="row" th:each="livro : ${livros}">
                     <td th:text="${livro.nome}"></td>
                     <td th:text="${livro.autor}"></td>
                     <td th:text="${livro.edicao}"></td>
@@ -30,44 +30,21 @@
                     <td th:text="${livro.status}"></td>
                     <td>
 
-                        <a th:if="${livro.status} == LOCADO" th:href="@{/locacoes/devolverLivro?idLivro={idLivro}(idLivro=${livro.id})}">Devolver Livro</a>
+                        <a class="btn btn-primary" th:if="${livro.status} == LOCADO" th:href="@{/locacoes/devolverLivro?idLivro={idLivro}(idLivro=${livro.id})}">Devolver Livro</a>
 
-                        <a th:href="@{/livros/cadastroLivro?id={id}(id=${livro.id})}">Editar</a>
+                        <a class="btn btn-primary" th:href="@{/livros/cadastroLivro?id={id}(id=${livro.id})}">Editar</a>
 
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Excluir
-                        </button>
+                       <form action="/livros" method="POST">
+                           <input type="hidden" name="_method" value="delete">
+                           <input type="hidden" name="id" th:value="${livro.id}">
+                           <input class="btn btn-primary" type="submit" value="Excluir">
+                       </form>
+
                     </td>
                 </tr>
             </tbody>
         </table>
-        <div th:each="livro : ${livros}">
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel" th:text="'Deseja realmente excluir o livro ' + ${livro.nome}"></h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                            <form action="/livros" method="POST">
-                                <input type="hidden" name="_method" value="delete">
-                                <input type="hidden" name="id" th:value="${livro.id}">
-                                <input type="submit" value="Excluir">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--
-                   <form action="/livros" method="POST">
-                       <input type="hidden" name="_method" value="delete">
-                       <input type="hidden" name="id" th:value="${livro.id}">
-                       <input type="submit" value="Excluir">
-                   </form>
-                   -->
+
     </div>
 
 </body>

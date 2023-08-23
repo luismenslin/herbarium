@@ -11,21 +11,25 @@
         <h1>Locar Livro</h1>
 
         <form method="post" action="/locacoes/locarLivro">
-            <label for="idAluno">Aluno:</label>
-            <select id="idAluno" name="idAluno">
-                <option th:each="aluno : ${alunos}" th:text="${aluno.nome} + ' | ' + ${aluno.curso}" th:value="${aluno.id}"></option>
+
+            <div class="mb-3">
+            <label class="form-label" for="idAluno">Aluno:</label>
+            <select class="form-select" aria-label="Default" id="idAluno" name="idAluno">
+                <option th:each="aluno : ${alunos}" th:text="${aluno.nome} + ' | Curso: ' + ${aluno.curso}" th:value="${aluno.id}"></option>
             </select>
+            </div>
+            <br>
+
+            <div class="mb-3">
+                <label class="form-label" for="idLivro">Livro:</label>
+                <select class="form-select" aria-label="Default" id="idLivro" name="idLivro">
+                    <option th:if="${livro.status == 'DISPONIVEL'}" th:each="livro : ${livros}" th:text="${livro.nome} + ' | Edição: ' + ${livro.edicao}" th:value="${livro.id}"></option>
+                </select>
+            </div>
 
             <br>
 
-            <label for="idLivro">Livro:</label>
-            <select id="idLivro" name="idLivro">
-                <option th:if="${livro.status == 'DISPONIVEL'}" th:each="livro : ${livros}" th:text="${livro.nome} + ' | ' + ${livro.edicao}" th:value="${livro.id}"></option>
-            </select>
-
-            <br>
-
-            <input type="Submit" value="Locar Livro">
+            <input class="btn btn-primary" type="Submit" value="Locar Livro">
         </form>
     </div>
 </body>

@@ -11,13 +11,17 @@
         <h1>Devolver Livro</h1>
 
         <div>
-            <span>Livro Locado</span>
-            <input th:value="${locacao.getLivro().getNome()}" disabled>
+            <div class="mb-3">
+                <label class="form-label">Livro Locado</label>
+                <input class="form-control" th:value="${locacao.getLivro().getNome()}" disabled>
+            </div>
 
             <br>
 
-            <span>Aluno Locador</span>
-            <input th:value="${locacao.getAluno().getNome()}" disabled>
+            <div class="mb-3">
+                <label class="form-label">Aluno Locador</label>
+                <input class="form-control" th:value="${locacao.getAluno().getNome()}" disabled>
+            </div>
 
         </div>
 
@@ -26,10 +30,12 @@
             <label for="locacao"></label>
             <input th:value="${locacao.getId()}" id="locacao" name="locacao" type="hidden">
 
-            <label for="devolucao">Data: </label>
-            <input id="devolucao" name="devolucao" type="date">
+            <div class="mb-3">
+                <label class="form-label" for="devolucao">Data: </label>
+                <input id="devolucao" name="devolucao" type="date">
+            </div>
 
-            <input type="Submit" value="Devolver Livro">
+            <input class="btn btn-primary". type="Submit" value="Devolver Livro">
         </form>
     </div>
 </body>

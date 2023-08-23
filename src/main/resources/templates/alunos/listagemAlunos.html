@@ -9,18 +9,18 @@
 <body>
     <div layout:fragment="conteudo">
         <h1>Alunos Cadastrados</h1>
-        <table>
+        <table class="table">
             <thead>
                 <tr>
-                    <th>NOME COMPLETO</th>
-                    <th>CELULAR</th>
-                    <th>CURSO</th>
-                    <th>FASE</th>
-                    <th>AÇÕES</th>
+                    <th scope="col">NOME COMPLETO</th>
+                    <th scope="col">CELULAR</th>
+                    <th scope="col">CURSO</th>
+                    <th scope="col">FASE</th>
+                    <th scope="col">AÇÕES</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="aluno : ${alunos}">
+                <tr scope="row" th:each="aluno : ${alunos}">
                     <td th:text="${aluno.nome}"></td>
                     <td th:text="${aluno.celular}"></td>
                     <td th:text="${aluno.curso}"></td>
@@ -28,12 +28,12 @@
 
                     <td>
 
-                        <a th:href="@{/alunos/cadastroAluno?id={id}(id=${aluno.id})}">Editar</a>
+                        <a class="btn btn-primary" th:href="@{/alunos/cadastroAluno?id={id}(id=${aluno.id})}">Editar</a>
 
                         <form action="/alunos" method="POST">
                             <input type="hidden" name="_method" value="delete">
                             <input type="hidden" name="id" th:value="${aluno.id}">
-                            <input type="submit" value="Excluir">
+                            <input class="btn btn-primary" type="submit" value="Excluir">
                         </form>
                     </td>
                 </tr>
