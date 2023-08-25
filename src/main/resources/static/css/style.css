@@ -1,0 +1,23 @@
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: center;
+    width: 75%;
+}
+
+td > form {
+    display: inline;
+}
+
+h1 {
+    color: white;
+    background-color: lightblue;
+}
