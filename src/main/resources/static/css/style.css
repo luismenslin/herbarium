@@ -21,3 +21,28 @@ h1 {
     color: white;
     background-color: lightblue;
 }
+
+#nav-bar-menu {
+    background-color: lightblue;
+}
+
+#nav-bar-menu-link-1 {
+    color: white;
+    border: 1px solid white;
+
+}
+
+#nav-bar-menu-link-2 {
+    color: white;
+    border: 1px solid white;
+}
+
+#nav-bar-menu-item-1 {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+#nav-bar-menu-item-2 {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}

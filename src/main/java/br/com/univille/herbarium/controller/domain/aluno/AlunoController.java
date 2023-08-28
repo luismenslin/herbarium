@@ -1,5 +1,6 @@
 package br.com.univille.herbarium.controller.domain.aluno;
 
+import br.com.univille.herbarium.controller.domain.locacao.LocacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +13,9 @@ public class AlunoController {
 
     @Autowired
     private AlunoRepository repository;
+
+    @Autowired
+    private LocacaoRepository locacaoRepository;
 
     @GetMapping
     public String showListagemAlunos(Model model) {
@@ -49,6 +53,12 @@ public class AlunoController {
     @DeleteMapping
     @Transactional
     public String deletaAluno(Long id) {
+        var locacoes = locacaoRepository.findAll();
+        for (int i = 0;i < locacoes.size();i++) {
+            if (locacoes.get(i).getAluno().getId() == id) {
+                locacaoRepository.deleteById(locacoes.get(i).getId());
+            }
+        }
         repository.deleteById(id);
         return "redirect:alunos";
     }
