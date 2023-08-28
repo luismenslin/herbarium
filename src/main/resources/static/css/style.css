@@ -23,6 +23,8 @@ h1 {
 }
 
 #nav-bar-menu {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     background-color: lightblue;
 }
 
@@ -45,4 +47,9 @@ h1 {
 #nav-bar-menu-item-2 {
     margin-left: 1.5em;
     margin-right: 1.5em;
+}
+
+img {
+    width: 250px;
+    height: 200px;
 }
