@@ -23,11 +23,6 @@ public class LocacaoController {
     @Autowired
     private LivroRepository livroRepository;
 
-    @GetMapping
-    public String showLocacoes() {
-        return "/livros/listagemLocacoes";
-    }
-
     @GetMapping("/locarLivro")
     public String showLocarLivro(Model model) {
         model.addAttribute("livros",livroRepository.findAll());

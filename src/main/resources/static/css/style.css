@@ -13,6 +13,18 @@ body {
     width: 75%;
 }
 
+select {
+    text-align: center;
+}
+
+option {
+    text-align: center;
+}
+
+input {
+    text-align: center;
+}
+
 td > form {
     display: inline;
 }
